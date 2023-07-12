@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const moment = require('moment');
 const Reaction = require('./Reaction');
 
-// Schema to create User model
+// Schema to create Thought model
 const thoughtSchema = new Schema(
     {
         thoughtText: {
@@ -30,7 +30,7 @@ const thoughtSchema = new Schema(
 
     {
         toJSON: {
-            virtuals: true,
+            getters: true,
         },
         id: false,
     } 
@@ -41,7 +41,7 @@ thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 
-// Initialize User model
+// Initialize Thought model
 const Thought = model('user', thoughtSchema);
 
 module.exports = Thought;
