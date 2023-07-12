@@ -142,6 +142,11 @@ User Input Functionality:
 - https://shields.io/category/license
 - https://github.com/devicons/devicon/tree/master/icons
 - https://nodejs.org/en/docs
+- https://mongoosejs.com/docs/tutorials/getters-setters.html
+- https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/
+- https://thecodebarbarian.com/formatting-javascript-dates-with-moment-js.html
+- https://momentjs.com/
+
 
 
 

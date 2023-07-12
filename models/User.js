@@ -4,17 +4,17 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
     {
         username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
         },
 
         email: {
-        type: String,
-        required: true,
-        unique: true,
-        match: [/.+@.+\..+/, 'Must match an email address!'],
+            type: String,
+            required: true,
+            unique: true,
+            match: [/.+@.+\..+/, 'Must match an email address!'],
         },
 
         thoughts: [
@@ -34,7 +34,7 @@ const userSchema = new Schema(
 
     {
         toJSON: {
-        virtuals: true,
+            virtuals: true,
         },
         id: false,
     } 
