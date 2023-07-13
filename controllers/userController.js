@@ -91,6 +91,22 @@ const userController = {
         },
 
     // Delete a friend
+    async deleteSingleFriend(req, res) {
+        try {
+        const deleteFriend = await User.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$pull: {friends: req.params.friendId}},
+            {new: true}
+        );
+        if (!deleteFriend) {
+            return res.status(404).json({ message: 'No user with that ID' })
+        }
+        res.json({ message: 'Friend association has been deleted from user.' });
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 }
 
 module.exports = userController;

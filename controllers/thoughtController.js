@@ -91,6 +91,21 @@ const thoughtController = {
         },
 
     // Delete a new reaction
+    async deleteSingleReaction(req, res) {
+        try {
+        const deleteReaction = await Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$pull: {reactions: { reactionId: req.params.reactionId } }},
+        );
+        if (!deleteReaction) {
+            return res.status(404).json({ message: 'No thought with that ID' })
+        }
+        res.json({ message: 'Reaction association has been deleted from thought.' });
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 }
 
 module.exports = thoughtController;
