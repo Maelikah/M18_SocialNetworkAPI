@@ -1,6 +1,7 @@
 const connection = require('../config/connection');
+const moment = require('moment');
 const { User, Thought } = require('../models');
-const { usersArray, thoughtsArray } = require('./data');
+const { usersArray, thoughtsArray } = require('./data.js');
 
 connection.on('error', (err) => err);
 
