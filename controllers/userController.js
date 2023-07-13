@@ -39,7 +39,23 @@ const userController = {
         }
         },
 
-    // Put a single user by id
+    // Update a single user by id
+    async updateSigleUser(req, res) {
+        try {
+        const updateUser = await User.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$set: req.body},
+            { runValidators: true, new: true }
+        )
+        if (!updateUser) {
+            return res.status(404).json({ message: 'No user with that ID' })
+        }
+        res.json(updateUser);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     // Delete a single user and its related thoughts by id
 

@@ -13,8 +13,8 @@ router.route('/').post(postNewUser);
 // Get a single user from api/users/:userId
 router.route('/:userId').get(getSingleUser);
 
-// // Update a single user from api/users/:userId
-// router.route('/:userId').put(updateSigleUser);
+// Update a single user from api/users/:userId
+router.route('/:userId').put(updateSigleUser);
 
 // // Delete a single user from api/users/:userId 
 // router.route('/:userId').delete(deleteSingleUser);

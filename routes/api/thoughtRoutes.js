@@ -13,8 +13,8 @@ router.route('/').post(postNewThought);
 // Get a single thought from api/thoughts/:thoughtId
 router.route('/:thoughtId').get(getSingleThought);
 
-// // Update a single thought from aapi/thoughts/:thoughtId
-// router.route('/:thoughtId').put(updateSigleThought);
+// Update a single thought from aapi/thoughts/:thoughtId
+router.route('/:thoughtId').put(updateSigleThought);
 
 // // Delete a single thought from api/thoughts/:thoughtId
 // router.route('/:thoughtId').delete(deleteSingleThought);

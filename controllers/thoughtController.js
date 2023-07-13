@@ -39,7 +39,25 @@ const thoughtController = {
         }
         },
 
-    // Put a single user by id
+    // Update a single thought by id
+    async updateSigleThought(req, res) {
+        try {
+        const updateThought = await Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$set: req.body},
+            { runValidators: true, new: true }
+        )
+        if (!updateThought) {
+            return res.status(404).json({ message: 'No thought with that ID' })
+        }
+        res.json(updateThought);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
+
+
 
     // Delete a single user and its related thoughts by id
 
