@@ -4,7 +4,6 @@ const { User, Thought } = require('../models');
 const userController = {
 
     // Get all users
-
     async getAllUsers(req, res) {
         try {
         const dbUserData = await User.find().select('-__v');
@@ -15,7 +14,16 @@ const userController = {
         }
         },
 
-    // Post a new users 
+    // Post a new user
+    async postNewUser(req, res) {
+        try {
+        const newUser = await User.create(req.body);
+        res.json(newUser);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     // Get a single user by id
 

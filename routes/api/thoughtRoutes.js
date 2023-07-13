@@ -7,8 +7,8 @@ const {
 // Get all thoughts from api/thoughts
 router.route('/').get(getAllThoughts);
 
-// // Post a new thoughts in api/thoughts
-// router.route('/').post(postNewThought);
+// Post a new thoughts in api/thoughts
+router.route('/').post(postNewThought);
 
 // // Get a single thought from api/thoughts/:thoughtId
 // router.route('/:thoughtId').get(getSingleThought);

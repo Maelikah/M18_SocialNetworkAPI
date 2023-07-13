@@ -7,8 +7,8 @@ const {
 // Get all users from api/users
 router.route('/').get(getAllUsers);
 
-// // Post a new users in api/users
-// router.route('/').post(postNewUser);
+// Post a new users in api/users
+router.route('/').post(postNewUser);
 
 // // Get a single user from api/users/:userId
 // router.route('/:userId').get(getSingleUser);
