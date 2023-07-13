@@ -16,8 +16,8 @@ router.route('/:thoughtId').get(getSingleThought);
 // Update a single thought from aapi/thoughts/:thoughtId
 router.route('/:thoughtId').put(updateSigleThought);
 
-// // Delete a single thought from api/thoughts/:thoughtId
-// router.route('/:thoughtId').delete(deleteSingleThought);
+// Delete a single thought from api/thoughts/:thoughtId
+router.route('/:thoughtId').delete(deleteSingleThought);
 
 // // Post a new reaction  to a thought's reaction list to api/thoughts/:thoughtId/reactions
 // router.route('/:thoughtId/reactions').post(postNewReaction);

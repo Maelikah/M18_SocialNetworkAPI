@@ -57,11 +57,23 @@ const thoughtController = {
         }
         },
 
+    // Delete a thought  and its related reactions by id
+    async deleteSingleThought(req, res) {
+        try {
+        const deleteThought = await Thought.findOneAndRemove({_id: req.params.thoughtId},);
+        if (!deleteThought) {
+            return res.status(404).json({ message: 'No thought with that ID' })
+        }
+        res.json({ message: 'Thought and its associated reactions have been deleted.' });
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
+    //Post a new reaction
 
-    // Delete a single user and its related thoughts by id
-
-    //Post a new friend
+    // Delete a new reaction
 }
 
 module.exports = thoughtController;

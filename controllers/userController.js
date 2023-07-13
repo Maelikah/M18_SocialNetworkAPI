@@ -46,7 +46,7 @@ const userController = {
             {_id: req.params.userId},
             {$set: req.body},
             { runValidators: true, new: true }
-        )
+        );
         if (!updateUser) {
             return res.status(404).json({ message: 'No user with that ID' })
         }
@@ -58,8 +58,23 @@ const userController = {
         },
 
     // Delete a single user and its related thoughts by id
+    async deleteSingleUser(req, res) {
+        try {
+        const deleteUser = await User.findOneAndRemove({_id: req.params.userId},);
+        if (!deleteUser) {
+            return res.status(404).json({ message: 'No user with that ID' })
+        }
+        await Thought.deleteMany({ _id: { $in: deleteUser.thoughts } });
+        res.json({ message: 'User and its associated thoughts have been deleted.' });
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     //Post a new friend
+
+    // Delete a friend
 }
 
 module.exports = userController;
