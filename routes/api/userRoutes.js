@@ -19,8 +19,8 @@ router.route('/:userId').put(updateSigleUser);
 // Delete a single user from api/users/:userId 
 router.route('/:userId').delete(deleteSingleUser);
 
-// // Post a new friend  to a user's friend list to api/users/:userId/friends/:friendId
-// router.route('/:userId/friends/:friendId').post(postNewFriend);
+// Post a new friend  to a user's friend list to api/users/:userId/friends/:friendId
+router.route('/:userId/friends/:friendId').post(postNewFriend);
 
 // // Delete a single friend  from a user's friend list to api/users/:userId/friends/:friendId
 // router.route('/:userId/friends/:friendId').delete(deleteSingleFriend);

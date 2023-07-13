@@ -73,6 +73,22 @@ const userController = {
         },
 
     //Post a new friend
+    async postNewFriend(req, res) {
+        try {
+        const newFriend = await User.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$addToSet: {friends: req.params.friendId}},
+            {new: true}
+        );
+        if (!newFriend) {
+            return res.status(404).json({ message: 'No user with that ID' })
+        }
+        res.json(newFriend);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     // Delete a friend
 }

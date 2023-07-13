@@ -72,6 +72,23 @@ const thoughtController = {
         },
 
     //Post a new reaction
+    async postNewReaction(req, res) {
+        try {
+        const newReaction = await Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$addToSet: {reactions: req.body}},
+            {runValidators: true},
+            {new: true }
+        );
+        if (!newReaction) {
+            return res.status(404).json({ message: 'No thought with that ID' })
+        }
+        res.json(newReaction);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     // Delete a new reaction
 }
