@@ -26,6 +26,18 @@ const userController = {
         },
 
     // Get a single user by id
+    async getSingleUser(req, res) {
+        try {
+        const findUser = await User.findOne({_id: req.params.userId}).select('-__v');
+        if (!findUser) {
+            return res.status(404).json({ message: 'No user with that ID' })
+        }
+        res.json(findUser);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     // Put a single user by id
 

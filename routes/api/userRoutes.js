@@ -10,8 +10,8 @@ router.route('/').get(getAllUsers);
 // Post a new users in api/users
 router.route('/').post(postNewUser);
 
-// // Get a single user from api/users/:userId
-// router.route('/:userId').get(getSingleUser);
+// Get a single user from api/users/:userId
+router.route('/:userId').get(getSingleUser);
 
 // // Update a single user from api/users/:userId
 // router.route('/:userId').put(updateSigleUser);

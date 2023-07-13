@@ -25,7 +25,19 @@ const thoughtController = {
         }
         },
 
-    // Get a single user by id
+    // Get a single thought by id
+    async getSingleThought(req, res) {
+        try {
+        const findThought = await Thought.findOne({_id: req.params.thoughtId});
+        if (!findThought) {
+            return res.status(404).json({ message: 'No thought with that ID' })
+        }
+        res.json(findThought);
+        } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+        }
+        },
 
     // Put a single user by id
 

@@ -10,8 +10,8 @@ router.route('/').get(getAllThoughts);
 // Post a new thoughts in api/thoughts
 router.route('/').post(postNewThought);
 
-// // Get a single thought from api/thoughts/:thoughtId
-// router.route('/:thoughtId').get(getSingleThought);
+// Get a single thought from api/thoughts/:thoughtId
+router.route('/:thoughtId').get(getSingleThought);
 
 // // Update a single thought from aapi/thoughts/:thoughtId
 // router.route('/:thoughtId').put(updateSigleThought);
