@@ -38,7 +38,4 @@ const reactionSchema = new Schema(
     } 
 );
 
-// Initialize Reaction model
-const Reaction = model('user', reactionSchema);
-
 module.exports = Reaction;
