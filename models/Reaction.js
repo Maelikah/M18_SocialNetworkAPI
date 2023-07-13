@@ -25,7 +25,7 @@ const reactionSchema = new Schema(
             type: Date,
             default: Date.now,
             get: function(timestamp) {
-                return moment(timestamp).format('MMMM Do YYYY, HH:mm')
+                return moment(timestamp).format('MMMM Do YYYY')
             }
         },
     },
