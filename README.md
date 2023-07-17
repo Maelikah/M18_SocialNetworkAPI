@@ -93,9 +93,10 @@ The purpose of this repository is to build an API for a social network web appli
 </br>
 
 1. Open integrated terminal
-2. Run `npm start` to initialize the server
-5. Go to `http://localhost:3001` to access the app
-6. Test endpoints in Insomnia
+2. Run `npm run seed` to add database seeds
+3. Run `npm start` to initialize the server
+4. Go to `http://localhost:3001` to access the app
+5. Test endpoints in Insomnia
 
 
 </br>
@@ -109,7 +110,7 @@ https://github.com/Maelikah/M18_SocialNetworkAPI
 
 User Input Functionality:
 
-![User Input Walkthrough Preview](./assets/Input-Walkthrough.gif)
+![API Tests Preview](./assets/API_Tests.gif)
 
 
 </br>
@@ -163,7 +164,59 @@ User Input Functionality:
 
 
 
-NA
+✏️ **USER**
+  * Get All Users: `GET /api/users/`
+  * Create a new user:  `POST /api/users` using JSON body:
+    ```
+    {
+        "username": "test username",
+        "email": "test email"
+    }
+    ```
+  * Get Single User: `GET /api/users/:userId`
+
+  * Update Single User: `PUT /api/users/:userId`
+    ```
+    {
+        "username": "update username",
+        "email": "upadate email"
+    }
+    ```
+
+  * Delete User & Related Thoughts: `DEL /api/user/:userId`
+
+<br>
+
+✏️ **THOUGHT**
+  * Get All Thoughts: `GET /api/thoughts/`
+  * Create New Thought: `POST /api/thoughts/`
+    ```
+    {
+        "thoughtText": "test text",
+        "username": "test username"
+    }
+    ```
+  * Get Single Thought: `GET /api/thoughts/:thoughtId`
+  * Update Single Thought: `PUT /api/thoughts/:thoughtId`
+    ```
+    {
+        "thoughtText": "update thought text"
+    }
+    ```
+  * Delete Thought & Related Reactions: `DEL /api/thoughts/:thoughtId`
+
+<br>
+
+✏️ **FRIEND**
+  * Create New Friend: `POST /api/users/:userid/friends/:friendId`
+  * Delete Friend: `DEL /api/users/:userid/friends/:friendId`
+
+
+<br>
+
+✏️ **REACTION**
+  * Create New Reaction: `POST /api/thoughts/:thoughtId/reactions`
+  * Delete Reaction: `DEL /api/thoughts/:thoughtId/reactions/:reactionId`
 
 
 </br>
